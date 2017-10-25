@@ -1,0 +1,338 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,  user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=3">
+    <title>Roby GAME</title>
+    <!--====================================== bootstrap style START ==============================================-->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+    <!--====================================== bootstrap style END ==============================================-->
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.google.fastbutton.js"></script>
+    <script type="text/javascript" src="js/google.fastbutton.js"></script>
+    <script type="text/javascript" src="js/jquery.transit.js"></script>
+    <!-- fb scripts START -->
+    <script type="text/javascript" src="js/fb-script.js"></script>
+    <script type="text/javascript" src="js/openfb.js"></script>
+    <script type="text/javascript" src="js/jquery.ajax-cross-origin.min.js"></script>
+    <!-- fb scripts END -->
+    <!-- bootstrap scripts START -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- bootstrap scripts END -->
+  </head>
+  <body onload="onDocLoad()">
+    <!-- splash Screen START -->
+    <div id="splashScreen"></div>
+    <img class="splashImg " src="img/splash-hd.png" alt="" class="img-thumbnail col-lg-12 col-md-12 col-sm-12 col-xs-12"/>
+    <!-- splash Screen END -->
+    <!-- modal START-->
+    <div class="modal-container">
+      <div class="modal" id="memorizeModal">
+        <div class="boxInside boxInside-0"><span class="boxNum boxNum-0"></span></div>
+        <div class="boxInside boxInside-1"><span class="boxNum boxNum-1"></span></div>
+        <div class="boxInside boxInside-2"><span class="boxNum boxNum-2"></span></div>
+        <div class="boxInside boxInside-3"><span class="boxNum boxNum-3"></span></div>
+      </div>
+      <div class="modal" id="gameOverModal">
+        <button class="btnShowMainMenu btn">x</button>
+        <div class="form-group">
+          <h3>Game Over!</h3>
+          <!-- <h1><span class = "txtPostScore">Post Score Modal</span></h1> -->
+          <span class = "txtPostScore"></span>
+          <h3 class="msgEncourage"></h3>
+          Your Score: <b class="score"></b><br />
+          <h3 class="msgNewTopScore">Your Top Score: </h3>
+          <b class="localTopScore"></b><br />
+        </div>
+        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <button class="btnPlayAgain btn btn-lg btn-warning">Play Again</button><br />
+        </div>
+        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <button class="btnFbLogin btn btn-lg btn-primary">FB LOGIN</button><br />
+          <button class="btnPostScore btn btn-lg btn-success">POST SCORE</button><br />
+        </div>
+        <!-- <div class="form-group">
+          Total STORED SCORE: <span class="localStoredScore"></span><br />
+          <div class="btn btn-default">PUT Score ONLINE!</div>
+          </div> -->
+      </div>
+      <div class="modal college-container" id = "collegeModal" style = "text-align:center;">
+        <!-- <input type = "text" id = "college" value = "" hidden /> -->
+        <h3>Choose your <b style = "color:#ea4b35">R</b><b style = "color:#fd761c">O</b><b style = "color:#2a80b9">B</b><b style = "color:#f1c40f">Y</b> Troop</h3>
+        <h4  style = "display:none" class = "txtChosenCollege">You Chose <b class = "msgChosenTrp"></b></h4>
+        <!-- msgChosenTrp send to phpfile -->
+        <h4><span  style = "display:none" class = "msgChooseTrp">PLEASE CHOOSE YOUR TROOP</span></h4>
+        <div class="btnCahs col-lg-6 col-md-6 col-sm-6 col-xs-6"  style="padding-right:0">
+          <img src="img/roby-icons/TIGER.png" alt="" class="img-responsive" style="float:right"/>
+        </div>
+        <div class="btnCcs col-lg-6 col-md-6 col-sm-6 col-xs-6"    style="padding-left:0">
+          <img src="img/roby-icons/PHOENIX.png" alt=""  class="img-responsive"  style="float:left"/>
+        </div>
+        <div class="btnCeas col-lg-6 col-md-6 col-sm-6 col-xs-6 "   style="padding-right:0">
+          <img src="img/roby-icons/KNIGHT.png" alt=""   class="img-responsive"  style="float:right"/>
+        </div>
+        <div class="btnCba col-lg-6 col-md-6 col-sm-6 col-xs-6"   style="padding-left:0">
+          <img src="img/roby-icons/WIZARD.png" alt=""  class="img-responsive"    style="float:left"/>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <button class="btnAddCollege btn btn-lg btn-success" onclick = "">OK</button>
+        </div>
+        <!-- <button class="btnCahs btn btn-lg btn-danger col-lg-6 col-md-6 col-sm-6 col-xs-6" style="">TIGERS</button>
+          <button class="btnCcs btn btn-lg btn-warning col-lg-6 col-md-6 col-sm-6 col-xs-6" >PHOENIX</button>
+          <button class="btnCba btn btn-lg col-lg-6 col-md-6 col-sm-6 col-xs-6" style = "background:yellow">WIZARDS</button>
+          <button class="btnCeas btn btn-lg btn-info col-lg-6 col-md-6 col-sm-6 col-xs-6">KNIGHTS</button><br ><br /> -->
+      </div>
+      <div class="modal" id="rsgModal" style="padding-top:45%">
+        <span class="msgRsgTimer" style="font-size:3em;"></span>
+      </div>
+      <div class="modal" id="aboutModal">
+        <button class="btnShowMainMenu btn">x</button>
+        <h4>About</h4>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="position:absolute;bottom:0%;height:90%;left:2%;width:96%;padding:0;text-align:center;overflow:auto;margin-bottom:20px;">
+          <!-- GAME DESCRITION START-->
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 noPadding" style="margin-top:1em;">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+              <img src="img/about/128.png" class="noBg noBorder img-thumbnail " alt="" />
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8  noPadding txtAlignLeft">
+              <span><b>ROBY</b></span><br />
+              <!-- <span>An addictive memory and brain teaser game.</span> -->
+              <span>The Game is a simple and addictive memory game that will help you enhance your photographic memory and improve your reaction time</span>
+            </div>
+          </div>
+          <!-- GAME DESCRITION END-->
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 noPadding" style="margin-top:1em;">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+              <img src="img/about/gcccs.png" class="noPadding noBg noBorder img-thumbnail " alt="" />
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPadding txtAlignLeft">
+              <span><b>Gordon College CCS</b></span><br />
+              <span>Tel: (047) 224-6929</span><br />
+              <span>gordoncollegeccs.edu.ph</span>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 noPadding developersDiv " style="margin-top:1em;">
+            <h4>Developers</h4>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="padding-left:0;padding-right:0;">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">	
+                <img src="img/about/bt-128.png" class="noPadding noBg noBorder img-thumbnail " alt="" />
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPadding txtAlignLeft">
+                <span><b>BS Computer Science</b></span><br />
+                <span>Batch 2014-2015</span><br />
+                <span>BScomputescience4@gmail.com</span>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 "  style="padding-left:0;padding-right:0;">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">	
+                <img src="img/about/jane.png" class="noBg noBorder img-thumbnail img-circle" alt="" />
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPadding txtAlignLeft">
+                <span><b>Ronajane L. Bituin</b></span><br />
+                <span>System Analyst/Market Analyst</span><br />
+                <span>janerocks2118@gmail.com</span>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 "  style="padding-left:0;padding-right:0;">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">	
+                <img src="img/about/paul.png" class="noBg noBorder img-thumbnail img-circle"  alt="" />
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPadding txtAlignLeft">
+                <span><b>John Paul Catapang</b></span><br />
+                <span>Programmer</span><br />
+                <span>paul07zeroseven@gmail.com</span>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 "  style="padding-left:0;padding-right:0;">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">	
+                <img src="img/about/auriel.png" class="noBg noBorder img-thumbnail img-circle"  alt="" />
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPadding txtAlignLeft">
+                <span><b>Auriel C. Gimeno</b></span><br />
+                <span>Programmer</span><br />
+                <span>auriel.gimeno@gmail.com</span>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 "  style="padding-left:0;padding-right:0;">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">	
+                <img src="img/about/honest.png" class="noBg noBorder img-thumbnail img-circle" alt="" />
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPadding txtAlignLeft">
+                <span><b>Honesto Rementilla</b></span><br />
+                <span>Graphics Designer</span><br />
+                <span>hibikikuze61@gmail.com</span>
+                <!-- <span>irojantimbas@gmail.com</span> -->
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 "  style="padding-left:0;padding-right:0;">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">	
+                <img src="img/about/roj.png" class="noBg noBorder img-thumbnail img-circle" alt="" />
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 noPadding txtAlignLeft">
+                <span><b>Rojan D. Timbas</b></span><br />
+                <span>Programmer</span><br />
+                <span>irojantimbas@gmail.com</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal" id="mainMenuModalTest">
+        <h1>Welcome To ROBY GAME</h1>
+        <h3>Prototype v5.3-- JQUERY TRANSIT</h3>
+        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <b>Instruction:</b> 
+          Memorize the 4 colors and its VALUE of TAP that will popout,
+          Tap ROBY correctly before time runs out. ENJOY!
+        </div>
+        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <button class="btnPlay btn btn-lg btn-warning">Play</button>
+        </div>
+        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <button class="btnLeaderboard btn btn-lg btn-warning">LeaderBoard</button>
+          <button class="stop">Stop</button>
+        </div>
+      </div>
+      <div class="modal" id="infoModal">
+        <!-- <h1>Information Modal</h1> -->
+        <h3>How To Play</h3>
+        <button  class="btn btnCustom btnShowMainMenu">
+        X
+        </button>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="position:absolute;bottom:0%;height:90%;left:2%;width:96%;padding:0;text-align:center;overflow:auto;">
+          <img src="img/info-1.png" alt="" class="img-thumbnail" style=""/>
+          <img src="img/info-2.png" alt="" class="img-thumbnail" style=""/>
+          <img src="img/info-3.png" alt="" class="img-thumbnail" style=""/>
+        </div>
+      </div>
+      <div class="modal" id="leaderboardModal" style="overflow:hidden">
+        <h3 style="">Leaderboard</h3>
+        <!-- <span>Your Rank: <span class="playerRankOnLeaderBoard"></span></span> -->
+        <span id="userRank"></span>
+        <br />
+        <button  class="btn btnCustom btnShowMainMenu">
+        X
+        </button>
+        <div style="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <button class="btn btnLBoard col-lg-2 col-md-2 col-sm-2 col-xs-2 txtAlignCenter noPadding" style="background:#fff;color:#93877b" value="All">ALL</button>
+          <button class="btn btnLBoard col-lg-2 col-md-2 col-sm-2 col-xs-2 txtAlignCenter noPadding" style="background:#c1392b;color:#fff" value="TIGER">TIGER</button>
+          <button class="btn btnLBoard col-lg-3 col-md-3 col-sm-3 col-xs-3 txtAlignCenter noPadding" style="background:#fd761c;color:#fff" value="PHOENIX">PHOENIX</button>
+          <button class="btn btnLBoard col-lg-2 col-md-2 col-sm-2 col-xs-2 txtAlignCenter noPadding" style="background:#2a80b9;color:#fff" value="KNIGHT">KNIGHT</button>
+          <button class="btn btnLBoard col-lg-3 col-md-3 col-sm-3 col-xs-3 txtAlignCenter noPadding" style="background:#f1c40f;color:#fff" value="WIZARD">WIZARD</button>
+        </div>
+        <div style="width:100%;height:85%;overflow:auto;padding-bottom:5%">
+          <table id="leaderboardTable"  class="table table-striped" style="margin-bottom:20px;width:100%;">
+            <thead>
+              <tr class="">
+                <td class="txtAlignCenter">RANK</td>
+                <td class=""></td>
+                <td class="">NAME</td>
+                <td class=""></td>
+                <td></td>
+                <td class="">SCORE</td>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+      <div class="modal" id="postBestScoreModal">
+        <button  class="btn-default btn btnCustom btnShowMainMenu">X</button>
+        <h2>Post Best Score Online</h2>
+        <span class = "txtPostScore"></span>
+        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <button class="btnFbLogin btn btn-lg btn-primary " style="">FB LOGIN</button>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <button class="btnPostScore btn btn-lg btn-success" style="">POST SCORE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- modal END-->
+    <div class="header-container">
+      <!--
+        v5.5 up to Level 3 only (2-4 numbers), with meter(nakahide lang)
+        <br />
+        TOP SCORE: <b><span class="localTopScore"></span></b><br />
+        Total STORED SCORE: <span class="localStoredScore"></span><br />
+        Level: <span class="levelCounter"></span>
+        Score: <b><span class="score">0</span></b><br />
+        Timer: <span class="timer">0</span><br />
+        -->
+      <div class="header-container-blocker" style=""></div>
+      
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 noPadding header-box-container" >
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPadding boBg txtAlignRight btnShowAboutModal"  style="text-align:right;">
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 " style="text-align:left;padding-top:1em;">
+            <img src="img/game-title.png" class="img-responsive noBg noBorder imgGameTitle" alt=""  style=""/>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 noPadding btnShowInfoModal btnCustom">
+            <img src="img/info.png" class="img-thumbnail noBorder"  style="background:#93877B;padding:.5em" alt="" />
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPadding  btnShowLeaderBoard "  style="background:#BBADA0;text-align:right;">
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 " style="text-align:left;padding-top:.5em;">
+            <span>Leaderboard</span>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 noPadding">
+            <img src="img/trophy.png" class="img-thumbnail noBorder"  style="background:#93877B;padding:.5em" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 noPadding header-box-container btnShowPostBestScoreModal" >
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPadding "  style="background:#BBADA0;text-align:right;">
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 " style="text-align:left;padding-top:.5em;">
+            <span>Best Score</span><br />
+            <span class="localTopScore"></span>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 noPadding">
+            <img src="img/star.png" class="img-thumbnail noBorder"   style="background:#93877B;padding:.5em" alt="" />
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 noPadding btnCustom"  style="background:#BBADA0;text-align:right;">
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="text-align:left;padding-top:.5em;">
+            <span>Rank: </span><br />
+            <span class="robyRankLocal"></span>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 noPadding">
+            <img src="img/plus.png" class="img-thumbnail noBorder"  style="background:#93877B;padding:.5em" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 noPadding header-box-container " >
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 noPadding  noBg"  style="text-align:right;border:2px solid #fff;">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 noBg noPadding " style="text-align:left;color:#313131;">
+            <span class="midSizeTxt">Score :</span>
+            <span class="score midSizeTxt"></span>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 noPadding "  style="text-align:right;border:2px solid #fff;">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 noPadding" style="text-align:center;color:#313131">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 noPadding "  style="text-align:right;border:2px solid #fff;">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 noPadding noBg" style="text-align:right;color:#313131">
+            <span class="midSizeTxt">Timer: </span>
+            <span class="timer midSizeTxt"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tap-container col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="btnPlay btn" style="z-index:91;padding:0;margin:0;" >
+        <img src="img/play.png" class="btnPlayImg"  alt="" /> 
+      </div>
+      <div class="tap-container-blocker" style=""></div>
+      <div class="btnTap btn-0"><span class="btn-value" id="tapBtn-0"></span></div>
+      <div class="btnTap btn-1"><span class="btn-value" id="tapBtn-1"></span></div>
+      <div class="btnTap btn-2"><span class="btn-value" id="tapBtn-2"></span></div>
+      <div class="btnTap btn-3"><span class="btn-value" id="tapBtn-3"></span></div>
+    </div>
+    <span class = "appVersion" style = "position:fixed; bottom:0; left:1em;">version 1.1.2</span>
+    <!-- <span class="btnShowAboutModal" style="border-radius:5px;width:48px;height:48px;position:absolute;bottom:0;right:.5em;color:red;background:#93877B;color:#fff;vertical-align:text-middle;font-size:1.5em;padding:0;vertical-align:text-middle;"><b style="position:absolute;bottom:.5em;left:20px;">?</b></span> -->
+  </body>
+  <script type="text/javascript" src="js/custom.js"></script>
+</html>

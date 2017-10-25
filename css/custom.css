@@ -1,0 +1,369 @@
+#splashScreen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    background-size: 100%;
+    z-index: 100;
+    text-align: center;
+}
+.splashImg {
+    width: 70%;
+    left: 15%;
+    position: fixed;
+    bottom: 5em;
+    text-align: center;
+    z-index: 100;
+}
+.txtAlignCenter {
+    text-align: center;
+}
+@font-face {
+    font-family: 'Segoo Ui';
+    src: url('../fonts/Segoe Ui.tff');
+    font-style: normal;
+    font-weight: normal;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+div {
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+.modal-container {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+.noPadding {
+    padding: 0;
+}
+.noMargin {
+    margin: 0;
+}
+.noBg {
+    background: none;
+}
+.noBorder {
+    border: 0;
+}
+html {
+    font-family: Segoe Ui;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    min-height: 100%;
+    min-width: 100%;
+    text-align: center;
+    z-index: 99;
+}
+body {
+    width: 700px;
+    margin: 0 auto;
+    display: block;
+    max-height: 100%;
+    min-height: 100%;
+    height: 100%;
+}
+span {} .header-container {
+    margin: 0 auto;
+    width: 96%;
+    min-height: 20%;
+    max-height: 35%;
+    display: block;
+    position: relative;
+    text-align: center;
+    padding: 1.5em 0;
+}
+.header-box {
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    width: 46%;
+    margin: 0 .5%;
+    display: inline-block;
+    height: 100%;
+    background: red;
+    background: #BBADA0;
+    color: #fff;
+    text-align: left;
+    vertical-align: top;
+}
+.header-box-container {
+    width: 100%;
+    height: 33%;
+    max-height: 33%;
+    min-height: 10%;
+    background: red;
+    background: none;
+    margin-top: .1em;
+    color: #fff;
+    overflow: hidden;
+}
+.tap-container {
+    margin-left: 2%;
+    width: 96%;
+    height: 55%;
+    max-height: 65%;
+    position: relative;
+    display: block;
+}
+.btnTap {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 49.2%;
+    height: 49.2%;
+    overflow: hidden;
+    vertical-align: text-bottom;
+    position: absolute;
+}
+.btnTap- a,
+button,
+.btn,
+.btnTap,
+.btnCustom {
+    -ms-touch-action: manipulation;
+    /* IE10  */
+    
+    touch-action: manipulation;
+    /* IE11+ */
+    
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -ms-tap-highlight-color: rgba(0, 0, 0, 0);
+    tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.btn {
+    margin: 0;
+}
+.btn-value {
+    font-size: 5em;
+    display: none;
+}
+.btn-0 {
+    background: #c1392b;
+}
+.btn-1 {
+    background: #d25400;
+    background: #fd761c;
+}
+.btn-2 {
+    background: #2a80b9;
+}
+.btn-3 {
+    background: #f1c40f;
+}
+.boxNum {
+    font-size: 3em;
+    top: 10%;
+    left: 40%;
+    position: absolute;
+    color: #fff;
+}
+.modal-container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, .5);
+    display: none;
+}
+.modal {
+    overflow: auto;
+    width: 94%;
+    height: 90%;
+    top: 5%;
+    left: 3%;
+    position: fixed;
+    position: absolute;
+    background: #2c2b2a;
+    display: none;
+    text-shadow: 1px 1px 1px #252525;
+    color: #fff;
+    padding: .1em .5em;
+}
+#memorizeModal {
+    width: 80%;
+    height: 50%;
+    top: 25%;
+    left: 10%;
+    padding: 0;
+    margin: 0;
+}
+.boxInside {
+    padding: 0;
+    margin: 0;
+    width: 40%;
+    height: 40%;
+    position: relative;
+    display: inline-block;
+    vertical-align: text-top;
+}
+#gameOverModal,
+.collegeModal {
+    color: #fff;
+}
+#collegeModal {
+    height: 85%;
+    top: 7.5%;
+}
+#rsgModal {
+    color: #fff;
+    background: none;
+}
+.timerPressureContainer {
+    background: #dedede;
+}
+.timerPressure {
+    background: #c1392b;
+    width: 100%;
+}
+.localTopScore {} .notransition {
+    -webkit-transition: null !important;
+    -moz-transition: null !important;
+    -o-transition: null !important;
+    -ms-transition: null !important;
+    transition: null !important;
+    WebkitTransition null;
+}
+h1 {} .header-box-right-holder {
+    float: right;
+    position: relative;
+    height: 64px;
+    width: 64px;
+    background: #93877B;
+    text-align: center;
+    vertical-align: middle
+}
+.header-box-left-image {
+    position: absolute;
+    height: 32px;
+    margin-top: 18px
+}
+.header-box-left-txt {
+    position: absolute;
+    left: 12px;
+    top: 30%;
+}
+.header-container {
+    background: red;
+    background: none;
+}
+.tap-container {
+    background: blue;
+    background: none;
+}
+.txtAlignLeft {
+    text-align: left;
+}
+.txtAlignRight {
+    text-align: right;
+}
+.txtDark0 {
+    color: #585757;
+}
+.headerIconImg {
+    margin-top: 12px;
+    height: 40px;
+}
+.btnPlay {
+    position: absolute;
+    top: 36%;
+    left: 38%;
+    width: 24%;
+    height: 24%;
+    padding: 20px;
+    vertical-align: center;
+    background: #fff;
+}
+.header-container-blocker,
+.tap-container-blocker {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: none;
+    z-index: 90;
+}
+.noPadding {
+    padding: 0;
+}
+.noMargin {
+    margin: 0;
+}
+.noBg {
+    background: none;
+}
+span {
+    position: absolute: left: 0;
+    bottom: 0;
+}
+.header-box-left-image {
+    height: 5vh;
+}
+.header-box-right-holder {
+    width: 16vw;
+    height: 12vh;
+}
+span {
+    font-size: 2.0vw;
+    font-size: 2.0vh;
+    font-size: 3vmin;
+}
+h1,
+h2 {
+    font-size: 3.0vh;
+}
+p {
+    font-size: 2vmin;
+}
+.btnShowMainMenu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #2c2b2a;
+}
+table img {
+    width: 3em;
+    height: 3em;
+}
+th {
+    font-size: 3.0vh;
+}
+table {
+    font-size: 2.0vw;
+    font-size: 2.0vh;
+    font-size: 3vmin;
+    text-align: left;
+}
+.midSizeTxt {
+    font-size: 3.0vw;
+    font-size: 3.0vh;
+    font-size: 4vmin;
+}
+#postBestScoreModal {
+    height: 40%;
+    top: 30%;
+}
+.table-striped > tbody > tr:nth-child(2n+1) > td,
+.table-striped > tbody > tr:nth-child(2n+1) > th {
+    color: #514f4d;
+    text-shadow: 0px 0px 0px #252525;
+}
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.developersDiv img {
+    padding: .5em;
+}
